@@ -1,0 +1,30 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block title %}Products{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'store/table_styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Product Overview</h1>
+<table class="responsive-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

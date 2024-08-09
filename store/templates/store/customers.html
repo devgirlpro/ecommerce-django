@@ -1,0 +1,32 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block title %}Customers{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'store/table_styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Customer Overview</h1>
+<table class="responsive-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Number of Orders</th>
+            <th>Order Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for customer in customers %}
+        <tr>
+            <td>{{ customer.first_name }} {{ customer.last_name }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.order_count }}</td>
+            <td><a href="{% url 'order_details' customer.id %}">View Orders</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

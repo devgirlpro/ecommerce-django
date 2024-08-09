@@ -1,0 +1,22 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block title %}{{ section_title }}{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'store/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="questions-container">
+    <h1>{{ section_title }}</h1>
+    {% for qa in questions_and_answers %}
+    <div class="question">
+        <h3>{{ qa.question }}</h3>
+        <p>{{ qa.answer|linebreaksbr }}</p>
+    </div>
+    {% endfor %}
+    <a href="{% url 'questions' %}" class="button">Back</a>
+</div>
+{% endblock %}
+

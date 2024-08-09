@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Details</title>
+</head>
+<body>
+    <h1>Order Details for {{ customer.name }}</h1>
+    {% for detail in order_details %}
+        <h2>Order ID: {{ detail.order.id }} - Date: {{ detail.order.date_ordered }}</h2>
+        <ul>
+            {% for item in detail.items %}
+                <li>{{ item.product.name }} (Quantity: {{ item.quantity }}) - ${{ item.product.price }} each</li>
+            {% endfor %}
+        </ul>
+        <p>Order Total: ${{ detail.order_total }}</p>
+        <hr>
+    {% endfor %}
+    <h3>Total Amount: ${{ total_amount }}</h3>
+    <a href="{% url 'customer_overview' %}">Back to Customer Overview</a>
+</body>
+</html>
+

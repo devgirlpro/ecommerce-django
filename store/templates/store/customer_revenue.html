@@ -1,0 +1,32 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block title %}Customer Revenue{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'store/table_styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Customer Revenue</h1>
+<table class="responsive-table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Total Orders</th>
+            <th>Total Revenue</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for customer in customers %}
+        <tr>
+            <td>{{ customer.first_name }}</td>
+            <td>{{ customer.last_name }}</td>
+            <td>{{ customer.total_orders }}</td>
+            <td>{{ customer.total_revenue }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

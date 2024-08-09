@@ -1,0 +1,32 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block title %}High Spending Customers{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'store/table_styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>High Spending Customers</h1>
+{% if customers %}
+<table class="responsive-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Total Spent</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for customer in customers %}
+        <tr>
+            <td>{{ customer.full_name }}</td>
+            <td>{{ customer.total_spent }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No customers have spent more than $500.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block title %}Best Selling Products{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'store/table_styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Best Selling Products</h1>
+<table class="responsive-table">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Order Count</th>
+            <th>Total Quantity Ordered</th>
+            <th>Customers</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.product_id }}</td>
+            <td>{{ product.product_name }}</td>
+            <td>{{ product.order_count }}</td>
+            <td>{{ product.total_quantity_ordered }}</td>
+            <td>{{ product.customers }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,27 @@
+# Python related
+*.py[cod]
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+env/
+venv/
+ENV/
+.venv/
+ENV.bak/
+venv.bak/
+
+# Django related
+*.log
+local_settings.py
+media/
+
+# Ignore MySQL database backups and related
+*.sql
+*.dump
+
+# VSCode related
+.vscode/
+

@@ -1,0 +1,20 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block title %}Questions and Answers{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'store/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="questions-container">
+    <h1>Questions and Answers</h1>
+    <div class="section-links">
+        <a href="{% url 'questions_detail' 'general_database_questions' %}" class="button">Allgemeine Datenbankfragen</a>
+        <a href="{% url 'questions_detail' 'sql_database_queries' %}" class="button">SQL- und Datenbankabfragen</a>
+        <a href="{% url 'questions_detail' 'database_design_architecture' %}" class="button">Datenbankdesign und Architektur</a>
+    </div>
+</div>
+{% endblock %}
+
